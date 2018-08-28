@@ -6,6 +6,8 @@ class Block extends Component {
   render (){
     return (
       <div>
+        <h2>{this.props.genre}</h2>
+        <p>{this.props.comment}</p>
         <p>trial block</p>
       </div>
     );

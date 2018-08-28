@@ -10,9 +10,9 @@ class Search extends Component{
 
               <form>
                 <input type="text"/>
-                <button type="button"><div class="fa fa-search"></div></button>
+                <button type="button"><div className="fa fa-search"></div></button>
               </form>
-              
+
             </div>
 
         );

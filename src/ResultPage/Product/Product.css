@@ -1,8 +1,5 @@
-img {
+#resultImg {
   display:inline;
   height: 200px;
   width: auto;
-}
-p {
-  display:inline;
 }

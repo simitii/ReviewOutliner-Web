@@ -2,26 +2,19 @@ import React, { Component } from 'react';
 import './ProductPage.css';
 
 import Block from './Block/Block.js';
-
+import Redirect from './Redirect/Redirect.js';
 
 class ProductPage extends Component {
 
   render() {
-    var product = {
-      "id": "B072C4KCQH",
-      "name": "Echo Buttons",
-      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61GquaDrMWL._SY355_.jpg",
-      "short_description": "cool",
-      "price": -1,
-      "score": -1,
-      "positive_arguments": [],
-      "negative_arguments": [],
-      "neutral_arguments": []
-    }
+
     return (
       <div>
-
-        <Block/>
+        <img id="productImg" src={this.props.product.image_url}alt="proImg"/>
+        <Block comment={this.props.positive_arguments} genre="Pros"/>
+        <Block comment={this.props.negative_arguments} genre="Cons"/>
+        <Block comment={this.props.neutral_arguments} genre="neutral"/>
+        <Redirect/>
 
       </div>
     );
