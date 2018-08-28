@@ -18,9 +18,9 @@ class App extends React.Component {
       "category_path": "./review/review2/review3",
       "price": -1,
       "score": -1,
-      "positive_arguments": ["positive"],
-      "negative_arguments": ["negative"],
-      "neutral_arguments": ["neutral"]
+      "positive_arguments": ["positive","poive"],
+      "negative_arguments": ["negative", "ga"],
+      "neutral_arguments": ["neutral","tra"]
     }
     var resultProduct = {
       "name": product.name,
