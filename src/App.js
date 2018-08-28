@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import SearchPage from './SearchPage/SearchPage.js';
+import ResultPage from './ResultPage/ResultPage.js';
+import ProductPage from './ProductPage/ProductPage.js';
 
 
 class App extends React.Component {
@@ -21,7 +23,9 @@ class App extends React.Component {
     }
     return (
       <div className="Main">
-        <SearchPage/>
+        <SearchPage motto='Simple Decision Maker'/>
+        <ResultPage/>
+        <ProductPage/>
 
 
       </div>

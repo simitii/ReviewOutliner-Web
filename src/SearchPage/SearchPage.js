@@ -21,7 +21,7 @@ class SearchPage extends React.Component {
     return (
       <div>
 
-        <Motto motto='Simple Decision Maker'/>
+        <Motto motto={this.props.motto}/>
         <Search/>
 
       </div>

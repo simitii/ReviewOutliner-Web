@@ -4,7 +4,7 @@ import './ProductPage.css';
 import Block from './Block/Block.js';
 
 
-class ProductPage extends React.Component {
+class ProductPage extends Component {
 
   render() {
     var product = {
