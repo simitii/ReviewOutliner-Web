@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './ResultPage.css';
 
-import SearchPage from './SearchPage/SearchPage.js';
+import Product from './Product/Product.js';
 
 
-class App extends React.Component {
+class ResultPage extends React.Component {
 
   render() {
     var product = {
       "id": "B072C4KCQH",
-      "name": "Echo Buttons (2 Buttons Per Pack)",
+      "name": "Echo Buttons",
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61GquaDrMWL._SY355_.jpg",
       "short_description": "cool",
       "price": -1,
@@ -20,13 +19,13 @@ class App extends React.Component {
       "neutral_arguments": []
     }
     return (
-      <div className="Main">
-        <SearchPage/>
+      <div>
 
+        <Product/>
 
       </div>
     );
   }
 }
 
-export default App;
+export default ResultPage;

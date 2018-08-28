@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './SearchPage.css';
 
-import SearchPage from './SearchPage/SearchPage.js';
+import Search from './Search/Search.js';
+import Motto from './Motto/motto.js'
 
-
-class App extends React.Component {
+class SearchPage extends React.Component {
 
   render() {
     var product = {
@@ -20,13 +19,14 @@ class App extends React.Component {
       "neutral_arguments": []
     }
     return (
-      <div className="Main">
-        <SearchPage/>
+      <div>
 
+        <Motto motto='Simple Decision Maker'/>
+        <Search/>
 
       </div>
     );
   }
 }
 
-export default App;
+export default SearchPage;
