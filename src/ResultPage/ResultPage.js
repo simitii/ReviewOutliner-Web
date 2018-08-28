@@ -7,7 +7,7 @@ import Product from './Product/Product.js';
 class ResultPage extends React.Component {
 
   render() {
-    var product = {
+    var ex1 = {
       "id": "B072C4KCQH",
       "name": "Echo Buttons",
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/61GquaDrMWL._SY355_.jpg",
@@ -21,7 +21,7 @@ class ResultPage extends React.Component {
     return (
       <div>
 
-        <Product/>
+        <Product product={ex1} />
 
       </div>
     );

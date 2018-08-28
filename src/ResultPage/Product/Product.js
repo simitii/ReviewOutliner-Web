@@ -3,10 +3,14 @@ import './Product.css';
 
 
 class Product extends Component {
+
   render(){
     return (
-      <div>
-        <p>{this.props.product}</p>
+      <div className="ProductBlock">
+        <img src={this.props.product.image_url}/>
+        <h3>{this.props.product.name}</h3>
+        <p>{this.props.product.short_description}</p>
+
       </div>
     );
   }
