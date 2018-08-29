@@ -10,7 +10,7 @@ class ResultPage extends React.Component {
 
     return (
       <div>
-        <Path path={this.props.category_path}/>
+        <Path path={this.props.product.category_path}/>
         <Product product={this.props.product} />
       </div>
     );

@@ -38,16 +38,16 @@ class App extends React.Component {
       "neutral_arguments": product.neutral_arguments
     }
     /*
-    <SearchPage motto="Every Simple Decision depends on us:)"/>
 
-    <ProductPage product={pageProduct}/>
 
     */
 
+
     return (
       <div className="Main">
+        <SearchPage motto="Every Simple Decision depends on us:)"/>
         <ResultPage product={resultProduct}/>
-
+        <ProductPage product={pageProduct}/>
 
       </div>
     );

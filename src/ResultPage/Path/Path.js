@@ -11,8 +11,9 @@ class Path extends Component {
       if (n == null) return array[array.length - 1];
       return array.slice(Math.max(array.length - n, 0));
     }
-    function parse (pathProduct) {
 
+    function parse (pathProduct) {
+        console.log(pathProduct);
         var newPath = pathProduct.split("/");
         if(newPath.length > 3){
           return last(newPath,3).join("/");
@@ -20,9 +21,10 @@ class Path extends Component {
         return newPath.join("/");
     }
 
+
     return (
       <div>
-        <p>{parse(this.props.category_path)}</p>
+        <p>{parse(this.props.path)}</p>
       </div>
     );
   }
