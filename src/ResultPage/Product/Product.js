@@ -12,6 +12,7 @@ class Product extends Component {
         <h3>{this.props.product.name}</h3>
         <p>{this.props.product.short_description}</p>
         <Path path={this.props.product.category_path}/>
+        
 
       </div>
     );
