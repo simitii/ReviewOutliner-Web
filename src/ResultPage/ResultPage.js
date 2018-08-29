@@ -12,7 +12,6 @@ class ResultPage extends React.Component {
       <div>
         <Path path={this.props.category_path}/>
         <Product product={this.props.product} />
-
       </div>
     );
   }

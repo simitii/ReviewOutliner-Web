@@ -8,7 +8,7 @@ class Block extends Component {
       <div>
         <h2>{this.props.genre}</h2>
         <ul>
-          {[1,23,34].map((element) =>
+          {this.props.comment.map((element) =>
             <li key={element}>
             {element}
             </li>

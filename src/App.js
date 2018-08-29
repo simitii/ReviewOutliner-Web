@@ -32,17 +32,21 @@ class App extends React.Component {
       "name": product.name,
       "image_url": product.image_url,
       "score": product.score,
+      "short_description": product.short_description,
       "positive_arguments": product.positive_arguments,
       "negative_arguments": product.negative_arguments,
       "neutral_arguments": product.neutral_arguments
     }
+    /*
+    <SearchPage motto="Every Simple Decision depends on us:)"/>
 
+    <ProductPage product={pageProduct}/>
+
+    */
 
     return (
       <div className="Main">
-        <SearchPage motto="Every Simple Decision depends on us:)"/>
         <ResultPage product={resultProduct}/>
-        <ProductPage product={pageProduct}/>
 
 
       </div>
