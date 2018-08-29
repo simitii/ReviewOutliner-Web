@@ -4,6 +4,7 @@ import './ProductPage.css';
 import Block from './Block/Block.js';
 import Redirect from './Redirect/Redirect.js';
 import Brief from './Brief/Brief.js';
+import Path from '../Path/Path.js';
 
 class ProductPage extends Component {
 
@@ -18,6 +19,8 @@ class ProductPage extends Component {
 
     return (
       <div>
+
+        <Path path={this.props.product.category_path}/>
         <img id="productImg" src={this.props.product.image_url}alt="proImg"/>
         <Brief product={briefProduct}/>
         <Block comment={this.props.product.positive_arguments} genre="Pros"/>

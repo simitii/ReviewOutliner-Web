@@ -32,6 +32,7 @@ class App extends React.Component {
       "name": product.name,
       "image_url": product.image_url,
       "score": product.score,
+      "category_path": product.category_path,
       "short_description": product.short_description,
       "positive_arguments": product.positive_arguments,
       "negative_arguments": product.negative_arguments,
