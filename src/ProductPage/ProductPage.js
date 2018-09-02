@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import './ProductPage.css';
 
+
 import Block from './Block/Block.js';
 import Redirect from './Redirect/Redirect.js';
 import Brief from './Brief/Brief.js';
 import Path from '../Path/Path.js';
+import LoadingPage from '../LoadingPage/LoadingPage.js';
 
 class ProductPage extends Component {
 
-  toWebSite(){
-
+  constructor(props){
+    super(props);
+    this.state ={
+      isReady:'False',
+    }
   }
 
   render() {
@@ -33,22 +38,27 @@ class ProductPage extends Component {
       "score": pageProduct.score,
     }
 
-    return (
-      <div>
+    if(!this.state.isReady){
+      return (<LoadingPage/>);
+    }else {
+      return (
+        <div>
 
-        <Path path={pageProduct.category_path}/>
-        <img id="productImg" src={pageProduct.image_url}alt="proImg"/>
-        <Brief product={briefProduct}/>
-        <Block comment={pageProduct.positive_arguments} genre="Pros"/>
-        <Block comment={pageProduct.negative_arguments} genre="Cons"/>
-        <Block comment={pageProduct.neutral_arguments} genre="neutral"/>
-        <button
-          onClick={() => (window.location.replace(pageProduct.product_url))}>
-          goAmazon
-        </button>
+          <Path path={pageProduct.category_path}/>
+          <img id="productImg" src={pageProduct.image_url}alt="proImg"/>
+          <Brief product={briefProduct}/>
+          <Block comment={pageProduct.positive_arguments} genre="Pros"/>
+          <Block comment={pageProduct.negative_arguments} genre="Cons"/>
+          <Block comment={pageProduct.neutral_arguments} genre="neutral"/>
+          <button
+            onClick={() => (window.location.replace(pageProduct.product_url))}>
+            goAmazon
+          </button>
 
-      </div>
-    );
+        </div>
+      );
+    }
+
   }
 }
 

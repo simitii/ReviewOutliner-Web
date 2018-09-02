@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Search.css';
-import {NavLink} from 'react-router-dom'
-import axios from 'axios';
+import {Link} from 'react-router-dom'
+
 
 class Search extends Component{
     constructor (props){
@@ -27,11 +27,11 @@ class Search extends Component{
                   type="text"
                   onChange={(event) => (this.updateSearch(event.target.value))}
                   value={this.state.search}/>
-                <NavLink 
+                <Link
                   type="button"
                   className="fa fa-search"
-                to={'/search='+ this.state.search}>
-                </NavLink>
+                  to={'/search='+ this.state.search}>
+                </Link>
             </div>
 
         );

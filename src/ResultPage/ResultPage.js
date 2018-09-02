@@ -2,10 +2,16 @@ import React from 'react';
 import './ResultPage.css';
 
 import Product from './Product/Product.js';
-
+import LoadingPage from '../LoadingPage/LoadingPage.js';
 
 class ResultPage extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      isReady : 'False',
+    }
+  }
 
 
 
@@ -38,15 +44,24 @@ class ResultPage extends React.Component {
       "neutral_arguments": ["neutral","tra"]
     }
     var productArray = [resultProduct,res2];
-    return (
-      <div>
-        <p>{this.props.search}</p>
-        {productArray.map((product,index)=>
-          <Product product={product} key={index} />
-        )}
 
-      </div>
-    );
+    if(!this.state.isReady){
+      return (
+        <LoadingPage/>
+      );
+    }else {
+      return (
+        <div>
+          <p>{this.props.search}</p>
+          {productArray.map((product,index)=>
+            <Product product={product} key={index} />
+          )}
+
+        </div>
+      );
+    }
+
+
   }
 }
 

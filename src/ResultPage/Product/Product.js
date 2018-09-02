@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './Product.css';
+import {Link} from 'react-router-dom';
 
 import Path from '../../Path/Path.js';
 
 class Product extends Component {
 
   toProduct(){
-    window.location.replace('/product='+this.props.product.name+':'+this.props.product.id)
+    window.location.replace()
   }
 
   render(){
@@ -16,10 +17,11 @@ class Product extends Component {
         <h3>{this.props.product.name}</h3>
         <p>{this.props.product.short_description}</p>
         <Path path={this.props.product.category_path}/>
-        <button
-          onClick={() => (this.toProduct())}>
+        <Link
+          type="button"
+          to={'/product='+this.props.product.id+'/'+this.props.product.name}>
           GoProduct
-        </button>
+        </Link>
 
       </div>
     );
