@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Search.css';
-import {Link,Redirect} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import axios from 'axios';
 
 class Search extends Component{
@@ -17,10 +17,6 @@ class Search extends Component{
       });
     }
 
-    submit(){
-      window.location.replace('/search='+ this.state.search);
-    }
-
 
     render(){
         return(
@@ -31,12 +27,11 @@ class Search extends Component{
                   type="text"
                   onChange={(event) => (this.updateSearch(event.target.value))}
                   value={this.state.search}/>
-                <button
+                <NavLink 
                   type="button"
-                  onClick={() => (this.submit())}
-                  className="fa fa-search">
-                </button>
-
+                  className="fa fa-search"
+                to={'/search='+ this.state.search}>
+                </NavLink>
             </div>
 
         );
