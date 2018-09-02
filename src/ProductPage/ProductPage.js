@@ -3,7 +3,6 @@ import './ProductPage.css';
 
 
 import Block from './Block/Block.js';
-import Redirect from './Redirect/Redirect.js';
 import Brief from './Brief/Brief.js';
 import Path from '../Path/Path.js';
 import LoadingPage from '../LoadingPage/LoadingPage.js';
