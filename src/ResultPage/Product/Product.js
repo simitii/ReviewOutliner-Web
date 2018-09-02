@@ -6,9 +6,6 @@ import Path from '../../Path/Path.js';
 
 class Product extends Component {
 
-  toProduct(){
-    window.location.replace()
-  }
 
   render(){
     return (

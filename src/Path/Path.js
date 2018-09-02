@@ -25,7 +25,7 @@ class Path extends Component {
         <p>{this.parse(this.props.path)}</p>
       </div>
 
-      
+
     );
   }
 }

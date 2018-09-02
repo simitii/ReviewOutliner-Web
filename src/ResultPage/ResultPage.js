@@ -51,7 +51,6 @@ class ResultPage extends React.Component {
     }else {
       return (
         <div>
-          <p>{this.props.search}</p>
           {this.state.productArray.map((product,index)=>
             <Product product={product} key={index} />
           )}
