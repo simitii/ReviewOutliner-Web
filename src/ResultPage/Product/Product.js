@@ -5,6 +5,10 @@ import Path from '../../Path/Path.js';
 
 class Product extends Component {
 
+  toProduct(){
+    window.location.replace('/product='+this.props.product.name+':'+this.props.product.id)
+  }
+
   render(){
     return (
       <div className="ProductBlock">
@@ -12,7 +16,10 @@ class Product extends Component {
         <h3>{this.props.product.name}</h3>
         <p>{this.props.product.short_description}</p>
         <Path path={this.props.product.category_path}/>
-        
+        <button
+          onClick={() => (this.toProduct())}>
+          GoProduct
+        </button>
 
       </div>
     );
