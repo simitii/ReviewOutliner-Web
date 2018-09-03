@@ -19,12 +19,12 @@ app.use('/search', (req, res) => {
 	}
 	const query = req.body.query;
 	if(typeof query !== 'string' && !(query instanceof String)){
-		res.status(400).send("query must be string");  
+		res.status(400).send("query must be string");
 		return;
 	}
 	const page = req.body.page || 1;
 	if(!Number.isInteger(page) || page<1){
-		res.status(400).send("page must be integer >= 1");  
+		res.status(400).send("page must be integer >= 1");
 		return;
     }
     res.send([
@@ -68,7 +68,7 @@ app.use('/get_product', (req, res) => {
 	}
 	const product_id = req.body.product_id;
 	if(typeof product_id !== 'string' && !(product_id instanceof String)){
-		res.status(400).send("product_id must be string");  
+		res.status(400).send("product_id must be string");
 		return;
 	}
 	if(product_id != "B072C4KCQH"){
@@ -167,4 +167,4 @@ const port = process.env.PORT || 3001;
 // start servers
 httpServer.listen(port, () => {
 	console.log('TEST-API: Server listening on port ' + port);
-}); 
+});

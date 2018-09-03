@@ -6,7 +6,7 @@ class LoadingPage extends React.Component{
   render (){
     return(
         <div className="LoadingPage">
-          <p>PAGE NOT FOUND!!!</p>
+          <p>PAGE IS LOADING!!!!!</p>
         </div>
     );
   }

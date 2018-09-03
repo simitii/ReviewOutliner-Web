@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ProductPage.css';
-
+import axios from 'axios';
 
 import Block from './Block/Block.js';
 import Brief from './Brief/Brief.js';
@@ -13,20 +13,20 @@ class ProductPage extends Component {
     super(props);
     this.state ={
       isReady: true,
-      pageProduct: {
-        "id": "B072C4KCQH",
-        "name": "Echo Buttons (2 Buttons Per Pack)",
-        "image_url": "https://images-na.ssl-images-amazon.com/images/I/61GquaDrMWL._SY355_.jpg",
-        "product_url":"https://www.amazon.com/Echo-Buttons-2-Pack/dp/B072C4KCQH",
-        "short_description": "cool",
-        "category_path": "./review/review2/review3",
-        "price": -1,
-        "score": -1,
-        "positive_arguments": ["positive","poive"],
-        "negative_arguments": ["negative", "ga"],
-        "neutral_arguments": ["neutral","tra"]
-      }
+      pageProduct: null
     }
+  }
+  componentDidMount() {
+
+    axios.post(`http://localhost:3001/get_product`, this.state.id)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        const arr = res.data;
+        this.setState({
+          pageProduct:arr,
+        });
+      })
   }
 
   render() {
