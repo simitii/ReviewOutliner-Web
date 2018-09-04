@@ -12,33 +12,34 @@ class ProductPage extends Component {
   constructor(props){
     super(props);
     this.state ={
-      isReady: true,
+      isReady: false,
       pageProduct: null
     }
   }
   componentDidMount() {
 
-    axios.post(`http://localhost:3001/get_product`, this.state.id)
+    axios.post(`http://localhost:3001/get_product`, {product_id:this.props.id})
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-        const arr = res.data;
         this.setState({
-          pageProduct:arr,
+          pageProduct:res.data,
+          isReady:true
         });
       })
   }
 
   render() {
-    const briefProduct = {
-      "name": this.state.pageProduct.name,
-      "short_description": this.state.pageProduct.short_description,
-      "score": this.state.pageProduct.score,
-    }
+
 
     if(!this.state.isReady){
       return (<LoadingPage/>);
     }else {
+
+      const briefProduct = {
+        "name": this.state.pageProduct.name,
+        "short_description": this.state.pageProduct.short_description,
+        "score": this.state.pageProduct.score,
+      }
+
       return (
         <div>
 

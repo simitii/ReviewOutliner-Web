@@ -11,20 +11,18 @@ class ResultPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      isReady : true,
+      isReady : false,
       productArray: []
     }
   }
 
   componentDidMount() {
 
-    axios.post(`http://localhost:3001/search`, {query:"B072C4KCQH"})
+    axios.post(`http://localhost:3001/search`, {query:this.props.search})
       .then(res => {
-        console.log(res);
-        console.log(res.content);
-        const arr = res.content;
         this.setState({
-          productArray:arr,
+          productArray:res.data,
+          isReady:true
         });
       })
   }

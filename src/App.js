@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { Route, Link, Switch} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 
 import SearchPage from './SearchPage/SearchPage.js';
 import ResultPage from './ResultPage/ResultPage.js';
