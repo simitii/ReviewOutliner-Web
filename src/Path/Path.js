@@ -18,15 +18,17 @@ class Path extends Component {
 
   render(){
 
+    if(!this.props.path){
+      return (<div/>);
+    }else{
+      return (
+        <div>
+          <p>{this.parse(this.props.path)}</p>
+        </div>
 
 
-    return (
-      <div>
-        <p>{this.parse(this.props.path)}</p>
-      </div>
-
-
-    );
+      );
+    }
   }
 }
 export default Path;
