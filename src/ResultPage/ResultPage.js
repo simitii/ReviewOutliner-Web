@@ -17,14 +17,14 @@ class ResultPage extends React.Component {
   }
 
   componentDidMount() {
-
-    axios.post(`http://localhost:3001/search`, {query:this.props.search})
+    axios.post(`http://localhost:8080/search`, {query:this.props.search})
       .then(res => {
         this.setState({
           productArray:res.data,
           isReady:true
         });
       })
+      .catch((e) => console.log("UNHANDLED-EXCEPTION: " + e));
   }
 
 
