@@ -18,7 +18,7 @@ class ProductPage extends Component {
   }
   componentDidMount() {
 
-    axios.post(`http://localhost:8080/get_product`, {product_id:this.props.id})
+    axios.post(`http://localhost:3001/get_product`, {product_id:this.props.id})
       .then(res => {
         this.setState({
           pageProduct:res.data,
