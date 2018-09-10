@@ -21,7 +21,7 @@ class ResultPage extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({onTime:true}),750);
+    this.timeout = setTimeout(() => this.setState({onTime:true}),750);
     axios.post(DOMAIN + '/search', {query:this.props.search})
       .then(res => {
         this.setState({
@@ -37,7 +37,9 @@ class ResultPage extends React.Component {
         }
       });
   }
-
+  componentWillUnmount(){
+    clearTimeout(this.timeout);
+  }
 
   render() {
     if(!this.state.isReady || !this.state.onTime){

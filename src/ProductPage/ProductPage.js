@@ -23,7 +23,7 @@ class ProductPage extends React.Component {
     }
   }
   componentDidMount() {
-    setTimeout(() => this.setState({onTime:true}),750);
+    this.timeout = setTimeout(() => this.setState({onTime:true}),750);
     axios.post( DOMAIN + '/get_product', {product_id:this.props.id})
       .then(res => {
         this.setState({
@@ -38,6 +38,9 @@ class ProductPage extends React.Component {
           this.props.history.replace('/error='+e.response.status+'/'+e.response.statusText)
         }
       });
+  }
+  componentWillUnmount(){
+    clearTimeout(this.timeout);
   }
 
   render() {
