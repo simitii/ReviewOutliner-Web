@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ProductPage.css';
 import axios from 'axios';
 import {DOMAIN} from '../constants.js';
@@ -9,18 +9,21 @@ import Brief from './Brief/Brief.js';
 import Path from '../Path/Path.js';
 import LoadingPage from '../LoadingPage/LoadingPage.js';
 import CustomImage from '../CustomImage/CustomImage.js';
+import Logo from '../Logo/Logo.js';
+import Search from '../Search/Search.js';
 
-class ProductPage extends Component {
+class ProductPage extends React.Component {
 
   constructor(props){
     super(props);
     this.state ={
       isReady: false,
+      onTime : false,
       pageProduct: null
     }
   }
   componentDidMount() {
-
+    setTimeout(() => this.setState({onTime:true}),750);
     axios.post( DOMAIN + '/get_product', {product_id:this.props.id})
       .then(res => {
         this.setState({
@@ -34,7 +37,7 @@ class ProductPage extends Component {
   render() {
 
 
-    if(!this.state.isReady){
+    if(!this.state.isReady || !this.state.onTime){
       return (<LoadingPage/>);
     }else {
 
@@ -46,9 +49,10 @@ class ProductPage extends Component {
 
       return (
         <div>
-
+          <Logo/>
+          <Search/>
           <Path path={this.state.pageProduct.category_path}/>
-          <CustomImage id="productImg" src={this.state.pageProduct.image_url}alt="proImg"/>
+          <CustomImage id="productImg" src={this.state.pageProduct.image_url} alt="product"/>
           <Brief product={briefProduct}/>
           <Block comment={this.state.pageProduct.positive_arguments} genre="Pros"/>
           <Block comment={this.state.pageProduct.negative_arguments} genre="Cons"/>

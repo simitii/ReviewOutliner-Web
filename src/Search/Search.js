@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Search.css';
 import {Link} from 'react-router-dom';
-import logo from '../../common/search.svg';
+import logo from '../common/search.svg';
 
 
-class Search extends Component{
+class Search extends React.Component{
     constructor (props){
       super(props);
       this.state = {

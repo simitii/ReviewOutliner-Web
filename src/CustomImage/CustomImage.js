@@ -7,7 +7,7 @@ class CustomImage extends React.Component{
     super(props);
     this.state = {
       loaded : false,
-      imageLoadingError : false, 
+      imageLoadingError : false,
     }
     this.onload = this.onload.bind(this);
     this.onerror = this.onerror.bind(this);
@@ -25,7 +25,7 @@ class CustomImage extends React.Component{
       return(
         <div>
           <div style={this.state.loaded ? {display: "none"}: {display: "block"}}>
-            <img src={logo}/>
+            <img src={logo} alt='Loading'/>
             <p>Loading</p>
           </div>
         <img {...this.props} onError={this.onerror} onLoad={this.onload}/>
@@ -34,7 +34,7 @@ class CustomImage extends React.Component{
     }else{
       return(
         <div>
-        <img src={logo}/>
+        <img src={logo} alt='Error'/>
         <p>No Photo</p>
       </div>
       )

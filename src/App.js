@@ -1,5 +1,4 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import { Route, Switch} from 'react-router-dom';
 
@@ -7,6 +6,7 @@ import SearchPage from './SearchPage/SearchPage.js';
 import ResultPage from './ResultPage/ResultPage.js';
 import ProductPage from './ProductPage/ProductPage.js';
 import ErrorPage from './ErrorPage/ErrorPage.js';
+
 
 class App extends React.Component {
 
