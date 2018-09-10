@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './LoadingPage.css';
-import logo from '../design/logo.svg' ;
+import logo from '../common/logo.svg' ;
 
 class LoadingPage extends Component{
   render (){

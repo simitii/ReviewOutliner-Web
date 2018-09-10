@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ProductPage.css';
 import axios from 'axios';
 import {DOMAIN} from '../constants.js';
+import {withRouter} from 'react-router-dom';
 
 import Block from './Block/Block.js';
 import Brief from './Brief/Brief.js';
@@ -26,7 +27,7 @@ class ProductPage extends Component {
           isReady:true
         });
       })
-      .catch((e) => console.log(e.response));
+      .catch((e) => this.props.history.replace('/error='+e.response.status+'/'+e.response.statusText));
   }
 
   render() {
@@ -64,4 +65,4 @@ class ProductPage extends Component {
   }
 }
 
-export default ProductPage;
+export default withRouter(ProductPage);

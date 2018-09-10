@@ -1,6 +1,6 @@
 import React from 'react';
 import './ErrorPage.css';
-import logo from '../design/logo.svg' ;
+import logo from '../common/logo.svg' ;
 
 class ErrorPage extends React.Component{
   render (){

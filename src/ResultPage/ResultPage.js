@@ -1,6 +1,7 @@
 import React from 'react';
 import './ResultPage.css';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 import {DOMAIN} from '../constants.js';
 
 import Product from './Product/Product.js';
@@ -24,7 +25,7 @@ class ResultPage extends React.Component {
           isReady:true
         });
       })
-      .catch((e) => console.log( e.response));
+      .catch((e) => this.props.history.replace('/error='+e.response.status+'/'+e.response.statusText));
   }
 
 
@@ -48,4 +49,4 @@ class ResultPage extends React.Component {
   }
 }
 
-export default ResultPage;
+export default withRouter(ResultPage);
