@@ -8,6 +8,7 @@ import Block from './Block/Block.js';
 import Brief from './Brief/Brief.js';
 import Path from '../Path/Path.js';
 import LoadingPage from '../LoadingPage/LoadingPage.js';
+import CustomImage from '../CustomImage/CustomImage.js';
 
 class ProductPage extends Component {
 
@@ -47,7 +48,7 @@ class ProductPage extends Component {
         <div>
 
           <Path path={this.state.pageProduct.category_path}/>
-          <img id="productImg" src={this.state.pageProduct.image_url}alt="proImg"/>
+          <CustomImage id="productImg" src={this.state.pageProduct.image_url}alt="proImg"/>
           <Brief product={briefProduct}/>
           <Block comment={this.state.pageProduct.positive_arguments} genre="Pros"/>
           <Block comment={this.state.pageProduct.negative_arguments} genre="Cons"/>
