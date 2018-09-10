@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ProductPage.css';
 import axios from 'axios';
+import {DOMAIN} from '../constants.js';
 
 import Block from './Block/Block.js';
 import Brief from './Brief/Brief.js';
@@ -18,14 +19,14 @@ class ProductPage extends Component {
   }
   componentDidMount() {
 
-    axios.post(`http://localhost:3001/get_product`, {product_id:this.props.id})
+    axios.post( DOMAIN + '/get_product', {product_id:this.props.id})
       .then(res => {
         this.setState({
           pageProduct:res.data,
           isReady:true
         });
       })
-      .catch((e) => console.log("UNHANDLED-EXCEPTION: " + e));
+      .catch((e) => console.log(e.response));
   }
 
   render() {

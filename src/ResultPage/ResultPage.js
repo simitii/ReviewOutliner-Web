@@ -1,7 +1,7 @@
 import React from 'react';
 import './ResultPage.css';
 import axios from 'axios';
-
+import {DOMAIN} from '../constants.js';
 
 import Product from './Product/Product.js';
 import LoadingPage from '../LoadingPage/LoadingPage.js';
@@ -17,14 +17,14 @@ class ResultPage extends React.Component {
   }
 
   componentDidMount() {
-    axios.post(`http://localhost:3001/search`, {query:this.props.search})
+    axios.post(DOMAIN + '/search', {query:this.props.search})
       .then(res => {
         this.setState({
           productArray:res.data,
           isReady:true
         });
       })
-      .catch((e) => console.log("UNHANDLED-EXCEPTION: " + e));
+      .catch((e) => console.log( e.response));
   }
 
 

@@ -6,7 +6,7 @@ import { Route, Switch} from 'react-router-dom';
 import SearchPage from './SearchPage/SearchPage.js';
 import ResultPage from './ResultPage/ResultPage.js';
 import ProductPage from './ProductPage/ProductPage.js';
-import LoadingPage from './LoadingPage/LoadingPage.js';
+import ErrorPage from './ErrorPage/ErrorPage.js';
 
 class App extends React.Component {
 
@@ -24,14 +24,27 @@ class App extends React.Component {
             render={() => (<SearchPage motto="Every Simple Decision depends on us:)"/>)}/>
 
           <Route
+            path="/search="
+            render={({match}) =>(<SearchPage motto="Every Simple Decision depends on us:)"/>)}/>
+          <Route
             path="/search=:search"
             render={({match}) =>(<ResultPage search={match.params.search} />)}/>
+
           <Route
             path="/product=:id/:name"
             render={({match}) =>(<ProductPage id={match.params.id}/>)}/>
 
           <Route
-            render={()=>(<LoadingPage/>)}/>
+            path='/error=:statusCode/:statusText'
+            render={({match})=>(
+              <ErrorPage statusCode={match.params.statusCode}
+                         statusText={match.params.statusText}/>
+              )}/>
+          <Route
+            render={()=>(
+              <ErrorPage statusCode='404'
+                         statusText='Not Found'/>
+             )}/>
 
         </Switch>
 
