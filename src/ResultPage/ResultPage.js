@@ -29,7 +29,13 @@ class ResultPage extends React.Component {
           isReady:true
         });
       })
-      .catch((e) => this.props.history.replace('/error='+e.response.status+'/'+e.response.statusText));
+      .catch((e) => {
+        if(!e.response){
+          this.props.history.replace('/error=503/Service Unavailable')
+        }else{
+          this.props.history.replace('/error='+e.response.status+'/'+e.response.statusText)
+        }
+      });
   }
 
 
