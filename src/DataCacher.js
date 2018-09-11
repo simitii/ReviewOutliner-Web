@@ -3,12 +3,21 @@ import React from 'react';
 class DataCacher extends React.Component {
 
   subComponentStateFactory(componentName){
+    const setState = (state) => {
+      const componentState = this.state[componentName] || {};
+      for(let key in state){
+        componentState[key] = state[key]
+      }
+      const newState = {};
+      newState[componentName] = componentState;
+      this.setState(newState);
+    };
     return {
       initState: ((state) => {
-        this.setState(state);
+        setState(state);
       }).bind(this),
       setState: ((state) => {
-        this.setState(state);
+        setState(state);
       }).bind(this),
       getState: (() => {
         return this.state[componentName] || {};

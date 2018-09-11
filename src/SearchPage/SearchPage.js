@@ -11,13 +11,12 @@ class SearchPage extends DataCacher {
     this.state={};
   }
   render() {
-
+    console.log(this.state);
     return (
       <div>
 
         <Motto motto={this.props.motto}/>
         <Search {...this.subComponentStateFactory("Search")} />
-
       </div>
     );
   }
