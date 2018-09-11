@@ -13,15 +13,15 @@ class DataCacher extends React.Component {
       this.setState(newState);
     };
     return {
-      initState: ((state) => {
+      initState: (state) => {
         setState(state);
-      }).bind(this),
-      setState: ((state) => {
+      },
+      setState: (state) => {
         setState(state);
-      }).bind(this),
-      getState: (() => {
+      },
+      getState: () => {
         return this.state[componentName] || {};
-      }).bind(this)
+      }
     }
   }
 

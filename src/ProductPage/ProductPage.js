@@ -24,7 +24,7 @@ class ProductPage extends DataCacher {
   }
   post(product_id) {
     this.timeout = setTimeout(() => this.setState({onTime:true}),750);
-    POST('/get_product', {product_id})
+    POST('/get_product', {product_id}, this.props.history)
     .then((res) => {
       this.setState({
         pageProduct:res.data,

@@ -23,7 +23,7 @@ class ResultPage extends DataCacher{
 
   post(query) {
     this.timeout = setTimeout(() => this.setState({onTime:true}),750);
-    POST('/search', {query})
+    POST('/search', {query}, this.props.history)
     .then((res) => {
       this.setState({
         productArray:res.data,
