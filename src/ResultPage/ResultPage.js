@@ -1,15 +1,16 @@
 import React from 'react';
+import DataCacher from '../DataCacher.js';
 import './ResultPage.css';
-import axios from 'axios';
+import {POST} from '../Request.js';
 import {withRouter} from 'react-router-dom';
-import {DOMAIN} from '../constants.js';
+
 
 import Product from './Product/Product.js';
 import LoadingPage from '../LoadingPage/LoadingPage.js';
 import Logo from '../Logo/Logo.js';
 import Search from '../Search/Search.js';
 
-class ResultPage extends React.Component {
+class ResultPage extends DataCacher{
 
   constructor(props){
     super(props);
@@ -20,23 +21,28 @@ class ResultPage extends React.Component {
     }
   }
 
-  componentDidMount() {
+  post(query) {
     this.timeout = setTimeout(() => this.setState({onTime:true}),750);
-    axios.post(DOMAIN + '/search', {query:this.props.search})
-      .then(res => {
-        this.setState({
-          productArray:res.data,
-          isReady:true
-        });
-      })
-      .catch((e) => {
-        if(!e.response){
-          this.props.history.replace('/error=503/Service Unavailable')
-        }else{
-          this.props.history.replace('/error='+e.response.status+'/'+e.response.statusText)
-        }
+    POST('/search', {query})
+    .then((res) => {
+      this.setState({
+        productArray:res.data,
+        isReady:true
       });
+    });
   }
+
+  propsChanged(nextProps){
+    this.post(nextProps.search);
+    this.setState({
+      isReady : false,
+      onTime : false,
+      productArray: []});
+  }
+  propsInitialized(){
+    this.post(this.props.search);
+  }
+
   componentWillUnmount(){
     clearTimeout(this.timeout);
   }

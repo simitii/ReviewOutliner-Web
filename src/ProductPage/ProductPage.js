@@ -1,8 +1,8 @@
 import React from 'react';
 import './ProductPage.css';
-import axios from 'axios';
-import {DOMAIN} from '../constants.js';
+import {POST} from '../Request.js';
 import {withRouter} from 'react-router-dom';
+import DataCacher from '../DataCacher.js';
 
 import Block from './Block/Block.js';
 import Brief from './Brief/Brief.js';
@@ -12,7 +12,7 @@ import CustomImage from '../CustomImage/CustomImage.js';
 import Logo from '../Logo/Logo.js';
 import Search from '../Search/Search.js';
 
-class ProductPage extends React.Component {
+class ProductPage extends DataCacher {
 
   constructor(props){
     super(props);
@@ -22,22 +22,26 @@ class ProductPage extends React.Component {
       pageProduct: null
     }
   }
-  componentDidMount() {
+  post(product_id) {
     this.timeout = setTimeout(() => this.setState({onTime:true}),750);
-    axios.post( DOMAIN + '/get_product', {product_id:this.props.id})
-      .then(res => {
-        this.setState({
-          pageProduct:res.data,
-          isReady:true
-        });
-      })
-      .catch((e) => {
-        if(!e.response){
-          this.props.history.replace('/error=503/Service Unavailable')
-        }else{
-          this.props.history.replace('/error='+e.response.status+'/'+e.response.statusText)
-        }
+    POST('/get_product', {product_id})
+    .then((res) => {
+      this.setState({
+        pageProduct:res.data,
+        isReady:true
       });
+    });
+  }
+
+  propsChanged(nextProps){
+    this.post(nextProps.id);
+    this.setState({
+      isReady: false,
+      onTime : false,
+      pageProduct: null});
+  }
+  propsInitialized(){
+    this.post(this.props.id);
   }
   componentWillUnmount(){
     clearTimeout(this.timeout);
