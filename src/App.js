@@ -31,8 +31,17 @@ class App extends React.Component {
             render={({match}) =>(<ResultPage search={match.params.search} />)}/>
 
           <Route
+            path="/product=:id/:name/:keyword"
+            render={({match}) =>(<div>
+              <p>{match.params.keyword}</p>
+              <ProductPage id={match.params.id}
+                           keyword={match.params.keyword}/>
+              </div>)}/>
+
+          <Route
             path="/product=:id/:name"
             render={({match}) =>(<ProductPage id={match.params.id}/>)}/>
+
 
           <Route
             path='/error=:statusCode/:statusText'

@@ -18,7 +18,7 @@ class Product extends React.Component {
         <Path path={this.props.product.category_path}/>
         <Link
           type="button"
-          to={'/product='+this.props.product.id+'/'+this.props.product.name}>
+          to={'/product='+this.props.product.id+'/'+this.props.product.name+'/'+this.props.keyword}>
           GoProduct
         </Link>
 
