@@ -63,10 +63,7 @@ class ProductPage extends DataCacher {
       return (
         <div>
           <Logo/>
-
-          <Search setState={this.subComponentStateSetterFactory("Search").bind(this)}
-                  keyword={this.props.keyword}
-                  state={this.state["Search"]}/>
+          <Search {...this.subComponentStateFactory("Search")} keyword={this.props.keyword}/>
           <Path path={this.state.pageProduct.category_path}/>
           <CustomImage id="productImg" src={this.state.pageProduct.image_url} alt="product"/>
           <Brief product={briefProduct}/>

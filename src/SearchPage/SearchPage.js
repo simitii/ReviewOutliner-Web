@@ -16,7 +16,7 @@ class SearchPage extends DataCacher {
       <div>
 
         <Motto motto={this.props.motto}/>
-        <Search setState={this.subComponentStateSetterFactory("Search").bind(this)} state={this.state["Search"]}/>
+        <Search {...this.subComponentStateFactory("Search")} />
 
       </div>
     );

@@ -2,16 +2,18 @@ import React from 'react';
 
 class DataCacher extends React.Component {
 
-  subComponentStateSetterFactory(componentName){
-    return (state) => {
-      const componentState = this.state[componentName] || {};
-      for(let key in state){
-        componentState[key] = state[key]
-      }
-      const newState = {};
-      newState[componentName] = componentState;
-      this.setState(newState);
-    };
+  subComponentStateFactory(componentName){
+    return {
+      initState: ((state) => {
+        this.setState(state);
+      }).bind(this),
+      setState: ((state) => {
+        this.setState(state);
+      }).bind(this),
+      getState: (() => {
+        return this.state[componentName] || {};
+      }).bind(this)
+    }
   }
 
   componentDidMount() {

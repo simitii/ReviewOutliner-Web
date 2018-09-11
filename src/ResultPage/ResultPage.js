@@ -48,11 +48,6 @@ class ResultPage extends DataCacher{
   }
 
   render() {
-    if(this.state["Search"]){
-      const keyword = this.state["Search"].search;
-    }else {
-      const keyword = '';
-    }
     if(!this.state.isReady || !this.state.onTime){
       return (
         <LoadingPage/>
@@ -61,9 +56,9 @@ class ResultPage extends DataCacher{
       return (
         <div>
           <Logo/>
-          <Search setState={this.subComponentStateSetterFactory("Search").bind(this)} state={this.state["Search"]}/>
+          <Search {...this.subComponentStateFactory("Search")} />
           {this.state.productArray.map((product,index)=>
-            <Product product={product} key={index} keyword='trial'/>
+            <Product product={product} key={index} keyword={this.state.search}/>
           )}
 
         </div>

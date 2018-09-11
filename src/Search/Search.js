@@ -5,7 +5,15 @@ import logo from '../common/search.svg';
 
 
 class Search extends React.Component{
-    
+    constructor(props){
+      super(props);
+      if(this.props.keyword){
+        this.props.initState({search:this.props.keyword});
+      }else {
+        this.props.initState({search:''});
+      }
+
+    }
 
     updateSearch(searchState){
       this.props.setState({
@@ -15,10 +23,7 @@ class Search extends React.Component{
 
 
     render(){
-      let search = ''
-      if(this.props.state){
-        search =this.props.state.search;
-      }
+      let state = this.props.getState();
         return(
             <div className="search-button">
 
@@ -26,10 +31,10 @@ class Search extends React.Component{
                 <input
                   type="text"
                   onChange={(event) => (this.updateSearch(event.target.value))}
-                  value={search}/>
+                  value={state.search}/>
                 <Link
                   type="button"
-                  to={'/search='+ search}>
+                  to={'/search='+ state.search}>
                     <img  id='search-solid' alt='load' src={logo}/>
                 </Link>
             </div>

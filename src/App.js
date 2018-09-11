@@ -32,11 +32,10 @@ class App extends React.Component {
 
           <Route
             path="/product=:id/:name/:keyword"
-            render={({match}) =>(<div>
-              <p>{match.params.keyword}</p>
+            render={({match}) =>(
               <ProductPage id={match.params.id}
                            keyword={match.params.keyword}/>
-              </div>)}/>
+              )}/>
 
           <Route
             path="/product=:id/:name"
