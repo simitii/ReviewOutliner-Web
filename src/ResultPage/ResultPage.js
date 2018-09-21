@@ -58,7 +58,7 @@ class ResultPage extends DataCacher{
           <Logo/>
           <Search {...this.subComponentStateFactory("Search")} />
           {this.state.productArray.map((product,index)=>
-            <Product product={product} key={index} keyword={this.state.search}/>
+            <Product product={product} key={index} keyword={this.state.Search.search}/>
           )}
 
         </div>

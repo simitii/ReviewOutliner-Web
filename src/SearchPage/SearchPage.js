@@ -11,7 +11,6 @@ class SearchPage extends DataCacher {
     this.state={};
   }
   render() {
-    console.log(this.state);
     return (
       <div>
 
